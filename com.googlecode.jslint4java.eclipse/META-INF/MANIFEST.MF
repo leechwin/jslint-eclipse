@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: jslint4java plugin
+Bundle-Name: jslint eclipse plugin
 Bundle-SymbolicName: com.googlecode.jslint4java.eclipse;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.googlecode.jslint4java.eclipse.JSLintPlugin
-Bundle-Vendor: GOOGLECODE
+Bundle-Vendor: leechwin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources
