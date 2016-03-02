@@ -34,7 +34,7 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer {
     public static final int DEFAULT_MAXERR = 50;
     public static final int DEFAULT_MAXLEN = 256;
 
-    private final Set<Option> defaultEnable = EnumSet.of(Option.BROWSER, Option.DEVEL, Option.ES6, Option.FOR ,Option.NODE, Option.THIS, Option.WHITE);
+    private final Set<Option> defaultEnable = EnumSet.of(Option.BROWSER, Option.DEVEL, Option.ES6, Option.FOR, Option.NODE, Option.THIS, Option.WHITE);
 
     @Override
     public void initializeDefaultPreferences() {

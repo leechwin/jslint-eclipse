@@ -17,7 +17,7 @@ public class CommandManager {
     private final String builderId = JSLintBuilder.BUILDER_ID;
 
     /**
-     * Add the JSLint build commands to a project.  If it already has them, no change will be made.
+     * Add the JSLint build commands to a project. If it already has them, no change will be made.
      */
     public void addTo(IProject project) throws CoreException {
         List<ICommand> cmds = getCommands(project);

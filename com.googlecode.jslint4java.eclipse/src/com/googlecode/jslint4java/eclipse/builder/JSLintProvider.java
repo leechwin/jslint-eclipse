@@ -23,9 +23,8 @@ public class JSLintProvider {
     private JSLint jsLint;
 
     /**
-     * Set up a listener for preference changes. This will ensure that the instance of
-     * {@link JSLint} that we have is kept in sync with the users choices. We do this by ensuring
-     * that a new JSLint will be created and configured on the next request.
+     * Set up a listener for preference changes. This will ensure that the instance of {@link JSLint} that we have is kept in sync with the users choices. We do this by ensuring that a new JSLint will
+     * be created and configured on the next request.
      */
     public void init() {
         IEclipsePreferences x = InstanceScope.INSTANCE.getNode(JSLintPlugin.PLUGIN_ID);
@@ -38,12 +37,10 @@ public class JSLintProvider {
     }
 
     /**
-     * Return a fully configured instance of JSLint. This should not be cached; each use should call
-     * this method.
+     * Return a fully configured instance of JSLint. This should not be cached; each use should call this method.
      */
     public JSLint getJsLint() {
         if (jsLint == null) {
-            // TODO: Allow for non-default versions of fulljslint.js.
             jsLint = builder.fromDefault();
             configure();
         }
@@ -62,4 +59,5 @@ public class JSLintProvider {
             }
         }
     }
+
 }

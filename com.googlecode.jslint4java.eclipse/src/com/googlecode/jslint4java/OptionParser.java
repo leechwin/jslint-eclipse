@@ -5,15 +5,12 @@ import java.lang.reflect.Method;
 
 /**
  * A utility class for turning option arguments from strings to typed values.
- *
  * @author dom
- *
  */
 class OptionParser {
 
     /**
-     * Attempt to parse <i>value</i> using the {@code valueOf(String)} method on <i>clazz</i>,
-     * should one exist.
+     * Attempt to parse <i>value</i> using the {@code valueOf(String)} method on <i>clazz</i>, should one exist.
      */
     public <T> T parse(Class<T> clazz, String value) {
         try {
@@ -39,4 +36,5 @@ class OptionParser {
             }
         }
     }
+
 }

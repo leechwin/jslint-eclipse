@@ -9,15 +9,13 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences.IPreferenceChangeListener;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences.PreferenceChangeEvent;
-
-import com.googlecode.jslint4java.eclipse.JSLintPlugin;
-
 import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 
+import com.googlecode.jslint4java.eclipse.JSLintPlugin;
+
 /**
- * Maintain the list of paths to exclude from linting. Will be automatically
- * updated when the prefs value changes.
+ * Maintain the list of paths to exclude from linting. Will be automatically updated when the prefs value changes.
  */
 public class Excluder {
     public static final String EXCLUDE_PATH_REGEXES_PREFERENCE = "exclude_path_regexes";
@@ -71,7 +69,7 @@ public class Excluder {
 
     private void readPref() {
         IPreferencesService prefs = Platform.getPreferencesService();
-        parsePref(prefs
-                .getString(JSLintPlugin.PLUGIN_ID, EXCLUDE_PATH_REGEXES_PREFERENCE, "", null));
+        parsePref(prefs.getString(JSLintPlugin.PLUGIN_ID, EXCLUDE_PATH_REGEXES_PREFERENCE, "", null));
     }
+
 }

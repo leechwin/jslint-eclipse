@@ -3,11 +3,7 @@ package com.googlecode.jslint4java;
 import java.util.Locale;
 
 /**
- * All available options for tuning the behaviour of JSLint.
- *
- * TODO Add a "Handler" class for each type, which knows whether it needs an
- * arg, how to parse it, etc.
- *
+ * All available options for tuning the behaviour of JSLint. TODO Add a "Handler" class for each type, which knows whether it needs an arg, how to parse it, etc.
  * @author dom
  * @author leechwin1@gmail.com
  */
@@ -41,7 +37,7 @@ public enum Option {
 
     THIS("If this should be allowed", Boolean.class),
 
-    PREDEF("The names of predefined global variables", Boolean.class)
+    PREDEF("The names of predefined global variables", String.class)
     // END-OPTIONS
     ;
 
@@ -76,7 +72,6 @@ public enum Option {
 
     /**
      * Calculate the maximum length of all of the {@link Option} names.
-     *
      * @return the length of the largest name.
      */
     public static int maximumNameLength() {

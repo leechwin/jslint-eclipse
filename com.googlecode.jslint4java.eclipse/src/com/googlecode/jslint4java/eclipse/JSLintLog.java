@@ -3,8 +3,6 @@ package com.googlecode.jslint4java.eclipse;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
-import com.googlecode.jslint4java.eclipse.JSLintPlugin;
-
 public class JSLintLog {
 
     // TODO How to get debug logging?
@@ -35,6 +33,7 @@ public class JSLintLog {
     }
 
     public static void log(IStatus status) {
-    	JSLintPlugin.getDefault().getLog().log(status);
+        JSLintPlugin.getDefault().getLog().log(status);
     }
+
 }

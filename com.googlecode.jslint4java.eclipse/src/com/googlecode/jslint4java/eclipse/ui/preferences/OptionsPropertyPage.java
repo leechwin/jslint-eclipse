@@ -27,7 +27,7 @@ public class OptionsPropertyPage extends OptionsPreferencePage implements IWorkb
 
     public void setElement(IAdaptable element) {
         this.element = element;
-        // Now that we have a project, we can reset the scope to be project specific.  NB: We're
+        // Now that we have a project, we can reset the scope to be project specific. NB: We're
         // guaranteed that this is an IProject because we restrict to that in plugin.xml.
         IProject project = (IProject) element.getAdapter(IProject.class);
         if (project != null) {

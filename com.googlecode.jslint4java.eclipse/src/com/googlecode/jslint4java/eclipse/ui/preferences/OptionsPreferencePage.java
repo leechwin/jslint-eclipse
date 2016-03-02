@@ -27,13 +27,11 @@ import com.googlecode.jslint4java.eclipse.builder.Excluder;
 import com.googlecode.jslint4java.eclipse.preferences.PreferencesInitializer;
 
 /**
- * This class represents a preference page that is contributed to the Preferences dialog. By
- * subclassing <samp>FieldEditorPreferencePage</samp>, we can use the field support built into JFace
- * that allows us to create a page that is small and knows how to save, restore and apply itself.
+ * This class represents a preference page that is contributed to the Preferences dialog. By subclassing <samp>FieldEditorPreferencePage</samp>, we can use the field support built into JFace that
+ * allows us to create a page that is small and knows how to save, restore and apply itself.
  * <p>
- * This page is used to modify preferences only. They are stored in the preference store that
- * belongs to the main plug-in class. That way, preferences can be accessed directly via the
- * preference store.
+ * This page is used to modify preferences only. They are stored in the preference store that belongs to the main plug-in class. That way, preferences can be accessed directly via the preference
+ * store.
  * <p>
  * TODO: trigger a rebuild on change.
  */
@@ -94,8 +92,7 @@ public class OptionsPreferencePage extends PreferencePage implements IWorkbenchP
         decoratorsLabel.setText("Toggleable options:");
         decoratorsLabel.setFont(mainFont);
 
-        checkboxViewer = CheckboxTableViewer.newCheckList(booleansParent, SWT.SINGLE | SWT.TOP
-                | SWT.BORDER);
+        checkboxViewer = CheckboxTableViewer.newCheckList(booleansParent, SWT.SINGLE | SWT.TOP | SWT.BORDER);
         checkboxViewer.getTable().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
         checkboxViewer.getTable().setFont(booleansParent.getFont());
         checkboxViewer.setLabelProvider(new LabelProvider() {
@@ -121,7 +118,6 @@ public class OptionsPreferencePage extends PreferencePage implements IWorkbenchP
             public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
             }
         });
-
     }
 
     @Override
@@ -158,8 +154,7 @@ public class OptionsPreferencePage extends PreferencePage implements IWorkbenchP
 
         // Our own eclipse-specific preference.
         addFieldEditor(new StringFieldEditor(PreferencesInitializer.PREDEF_ID, Option.PREDEF.getDescription(), parent));
-        addFieldEditor(new StringFieldEditor(Excluder.EXCLUDE_PATH_REGEXES_PREFERENCE,
-                "File patterns to exclude", parent));
+        addFieldEditor(new StringFieldEditor(Excluder.EXCLUDE_PATH_REGEXES_PREFERENCE, "File patterns to exclude", parent));
     }
 
     public void init(IWorkbench workbench) {

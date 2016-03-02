@@ -21,7 +21,6 @@ import com.googlecode.jslint4java.eclipse.preferences.PreferencesInitializer;
 
 /**
  * A utility class to check JavaScript source code for potential problems.
- *
  * @author leechwin1@gmail.com
  * @author dom
  * @see JSLintBuilder Construction of JSLint
@@ -48,9 +47,8 @@ public class JSLint {
     }
 
     /**
-     * Create a new {@link JSLint} object. You must pass in a {@link Function}, which is the JSLINT
-     * function defined by jslint.js. You are expected to use {@link JSLintBuilder} rather than
-     * calling this constructor.
+     * Create a new {@link JSLint} object. You must pass in a {@link Function}, which is the JSLINT function defined by jslint.js. You are expected to use {@link JSLintBuilder} rather than calling
+     * this constructor.
      */
     JSLint(ContextFactory contextFactory, Function lintFunc) {
         this.contextFactory = contextFactory;
@@ -58,24 +56,17 @@ public class JSLint {
     }
 
     /**
-     * Add an option to change the behaviour of the lint. This will be passed in
-     * with a value of "true".
-     *
-     * @param o
-     *            Any {@link Option}.
+     * Add an option to change the behaviour of the lint. This will be passed in with a value of "true".
+     * @param o Any {@link Option}.
      */
     public void addOption(Option o) {
         options.put(o, Boolean.TRUE);
     }
 
     /**
-     * Add an option to change the behaviour of the lint. The option will be
-     * parsed as appropriate using an {@link OptionParser}.
-     *
-     * @param o
-     *            Any {@link Option}.
-     * @param arg
-     *            The value to associate with <i>o</i>.
+     * Add an option to change the behaviour of the lint. The option will be parsed as appropriate using an {@link OptionParser}.
+     * @param o Any {@link Option}.
+     * @param arg The value to associate with <i>o</i>.
      */
     public void addOption(Option o, String arg) {
         OptionParser optionParser = new OptionParser();
@@ -102,7 +93,6 @@ public class JSLint {
                             (String) nativeObj.get("name"));
                     issueList.add(issue);
                 }
-
                 return new JSLintResult(issueList);
             }
         });
@@ -110,12 +100,8 @@ public class JSLint {
 
     /**
      * Check for problems in a {@link Reader} which contains JavaScript source.
-     *
-     * @param systemId
-     *            a filename
-     * @param reader
-     *            a {@link Reader} over JavaScript source code.
-     *
+     * @param systemId a filename
+     * @param reader a {@link Reader} over JavaScript source code.
      * @return a {@link JSLintResult}.
      */
     public JSLintResult lint(String systemId, Reader reader) throws IOException {
@@ -124,19 +110,15 @@ public class JSLint {
 
     /**
      * Check for problems in JavaScript source.
-     *
-     * @param systemId
-     *            a filename
-     * @param javaScript
-     *            a String of JavaScript source code.
-     *
+     * @param systemId a filename
+     * @param javaScript a String of JavaScript source code.
      * @return a {@link JSLintResult}.
      */
     public JSLintResult lint(String systemId, String javaScript) {
         // This is synchronized, even though Rhino is thread safe, because we have multiple
-        // accesses to the scope, which store state in between them.  This synchronized block
+        // accesses to the scope, which store state in between them. This synchronized block
         // is slightly larger than I would like, but in practical terms, it doesn't make much
-        // difference.  The cost of running lint is larger than the cost of pulling out the
+        // difference. The cost of running lint is larger than the cost of pulling out the
         // results.
         synchronized (this) {
             return doLint(javaScript);
@@ -144,8 +126,7 @@ public class JSLint {
     }
 
     /**
-     * Turn the set of options into a JavaScript object, where the key is the
-     * name of the option and the value is true.
+     * Turn the set of options into a JavaScript object, where the key is the name of the option and the value is true.
      */
     @NeedsContext
     private Scriptable optionsAsJavaScriptObject() {
@@ -187,4 +168,5 @@ public class JSLint {
     public void resetOptions() {
         options.clear();
     }
+
 }

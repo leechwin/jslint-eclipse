@@ -5,9 +5,7 @@ import java.util.List;
 
 /**
  * The result of a JSLint run.
- *
  * @author leechwin1@gmail.com
- *
  */
 public class JSLintResult {
 

@@ -15,7 +15,6 @@ import org.mozilla.javascript.UniqueTag;
 
 /**
  * A collection of useful routines.
- *
  * @author dom
  */
 final class Util {
@@ -29,20 +28,15 @@ final class Util {
      */
     interface Converter<T> {
         /**
-         * Turn the JavaScript object <i>obj</i> into a Java one. NB: For some
-         * values (e.g. strings), this may be a regular Java object.
+         * Turn the JavaScript object <i>obj</i> into a Java one. NB: For some values (e.g. strings), this may be a regular Java object.
          */
         T convert(Object obj);
     }
 
     /**
-     * Return the boolean value of a JavaScript variable. If the variable is
-     * undefined, <i>false</i> is returned.
-     *
-     * @param name
-     *            the JavaScript variable
-     * @param scope
-     *            the JavaScript scope to read from
+     * Return the boolean value of a JavaScript variable. If the variable is undefined, <i>false</i> is returned.
+     * @param name the JavaScript variable
+     * @param scope the JavaScript scope to read from
      * @return the value of <i>name</i>
      */
     static boolean booleanValue(String name, Scriptable scope) {
@@ -56,11 +50,8 @@ final class Util {
 
     /**
      * Return the integer value of a JavaScript variable.
-     *
-     * @param name
-     *            the JavaScript variable
-     * @param scope
-     *            the JavaScript scope to read from
+     * @param name the JavaScript variable
+     * @param scope the JavaScript scope to read from
      * @return the value of <i>name</i> as an integer, or zero.
      */
     static int intValue(String name, Scriptable scope) {
@@ -72,15 +63,10 @@ final class Util {
     }
 
     /**
-     * Convert a Java object to a JavaScript one. This is basically like {@link Context#javaToJS}
-     * except that we convert arrays to real JavaScript arrays instead of {@link NativeJavaArray}
-     * instances. This is done in order to satisfy JSLint's implementation of
-     * {@code Array.isArray()}.
-     *
-     * @param o
-     *            Any Java object.
-     * @param scope
-     *            The scope within which the conversion is made.
+     * Convert a Java object to a JavaScript one. This is basically like {@link Context#javaToJS} except that we convert arrays to real JavaScript arrays instead of {@link NativeJavaArray} instances.
+     * This is done in order to satisfy JSLint's implementation of {@code Array.isArray()}.
+     * @param o Any Java object.
+     * @param scope The scope within which the conversion is made.
      * @return An equivalent JavaScript object.
      */
     static Object javaToJS(Object o, Scriptable scope) {
@@ -93,19 +79,11 @@ final class Util {
     }
 
     /**
-     * Convert a JavaScript array into a Java {@link List}. You must provide a
-     * converter which will be called on each value in order to convert it to a
-     * Java object.
-     *
-     * @param <T>
-     *            The type of every array member.
-     * @param name
-     *            The name of the array.
-     * @param scope
-     *            The scope which contains the array.
-     * @param c
-     *            A {@link Converter} instance to change the JavaScript object
-     *            into a Java one.
+     * Convert a JavaScript array into a Java {@link List}. You must provide a converter which will be called on each value in order to convert it to a Java object.
+     * @param <T> The type of every array member.
+     * @param name The name of the array.
+     * @param scope The scope which contains the array.
+     * @param c A {@link Converter} instance to change the JavaScript object into a Java one.
      * @return A {@link List} of Java objects.
      */
     static <T> List<T> listValue(String name, Scriptable scope, Converter<T> c) {
@@ -124,17 +102,11 @@ final class Util {
     }
 
     /**
-     * Convert a JavaScript array into a Java {@link List}, where each value in
-     * that array is a Java object (or castable to it).
-     *
-     * @param <T>
-     *            Normally, {@link String} or {@link Integer}.
-     * @param name
-     *            The name of the array to convert
-     * @param class1
-     *            The type of the array values
-     * @param scope
-     *            The scope containing the array.
+     * Convert a JavaScript array into a Java {@link List}, where each value in that array is a Java object (or castable to it).
+     * @param <T> Normally, {@link String} or {@link Integer}.
+     * @param name The name of the array to convert
+     * @param class1 The type of the array values
+     * @param scope The scope containing the array.
      */
     static <T> List<T> listValueOfType(String name, Class<T> class1, Scriptable scope) {
         return listValue(name, scope, new Converter<T>() {
@@ -148,7 +120,6 @@ final class Util {
 
     /**
      * Read all of a {@link Reader} into memory as a {@link String}.
-     *
      * @param reader
      * @return
      * @throws IOException
@@ -164,11 +135,8 @@ final class Util {
 
     /**
      * Returns the value of a JavaScript variable, or null.
-     *
-     * @param name
-     *            the JavaScript variable.
-     * @param scope
-     *            the JavaScript scope to read from
+     * @param name the JavaScript variable.
+     * @param scope the JavaScript scope to read from
      * @return the value of <i>name</i> or null.
      */
     static String stringValue(String name, Scriptable scope) {
@@ -183,7 +151,7 @@ final class Util {
         final List<String> list = new ArrayList<String>();
         final StringTokenizer tokenizer = new StringTokenizer(str, delimiters);
         while (tokenizer.hasMoreTokens()) {
-            list.add( tokenizer.nextToken() );
+            list.add(tokenizer.nextToken());
         }
         return (String[]) list.toArray(new String[0]);
     }

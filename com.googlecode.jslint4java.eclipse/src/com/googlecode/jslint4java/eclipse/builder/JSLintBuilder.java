@@ -95,7 +95,6 @@ public class JSLintBuilder extends IncrementalProjectBuilder {
                 m.setAttribute(IMarker.LINE_NUMBER, issue.getLine());
                 m.setAttribute(IMarker.SOURCE_ID, "jslint4java");
             }
-            // JSLintLog.logInfo("Added marker for " + issue);
         } catch (CoreException e) {
             JSLintLog.error(e);
         }
@@ -142,8 +141,7 @@ public class JSLintBuilder extends IncrementalProjectBuilder {
         try {
             JSLint lint = lintProvider.getJsLint();
             // TODO: this should react to changes in the prefs pane instead.
-            reader = new BufferedReader(new InputStreamReader(file
-                    .getContents(), file.getCharset()));
+            reader = new BufferedReader(new InputStreamReader(file.getContents(), file.getCharset()));
             JSLintResult result = lint.lint(file.getFullPath().toString(),
                     reader);
             for (Issue issue : result.getIssues()) {
@@ -159,8 +157,7 @@ public class JSLintBuilder extends IncrementalProjectBuilder {
     }
 
     /**
-     * Is {@code file} explicitly excluded? Check against a list of regexes in
-     * the <i>exclude_path_regexes</i> preference.
+     * Is {@code file} explicitly excluded? Check against a list of regexes in the <i>exclude_path_regexes</i> preference.
      */
     private boolean excluded(IFile file) {
         return excluder.isExcluded(file);
@@ -216,4 +213,5 @@ public class JSLintBuilder extends IncrementalProjectBuilder {
     private void logProgress(IProgressMonitor monitor, IResource resource) {
         monitor.subTask("Linting " + resource.getName());
     }
+
 }

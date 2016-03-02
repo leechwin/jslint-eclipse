@@ -39,7 +39,6 @@ public class JSLintPlugin extends AbstractUIPlugin {
 
     /**
      * Returns the shared instance
-     *
      * @return the shared instance
      */
     public static JSLintPlugin getDefault() {
@@ -48,7 +47,6 @@ public class JSLintPlugin extends AbstractUIPlugin {
 
     /**
      * Override the default implementation in order to store prefs in the correct scope.
-     *
      * @see JSLintPlugin#PLUGIN_ID
      */
     @Override

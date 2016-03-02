@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A JavaScript function definition. This is taken from JSLint's {@code .data()}
- * function.
- *
+ * A JavaScript function definition. This is taken from JSLint's {@code .data()} function.
  * @author hdm
- *
  */
 public class JSFunction {
 
@@ -110,8 +107,7 @@ public class JSFunction {
     }
 
     /**
-     * The variables and parameters that are declared in the function that are
-     * used by its inner functions.
+     * The variables and parameters that are declared in the function that are used by its inner functions.
      */
     public List<String> getClosure() {
         return closure;
@@ -159,16 +155,14 @@ public class JSFunction {
     }
 
     /**
-     * The variables that are declared in the function that are not used. This
-     * may be an indication of an error.
+     * The variables that are declared in the function that are not used. This may be an indication of an error.
      */
     public List<String> getUnused() {
         return unused;
     }
 
     /**
-     * The variables that are declared in the function that are used only by the
-     * function.
+     * The variables that are declared in the function that are used only by the function.
      */
     public List<String> getVars() {
         return vars;
@@ -178,4 +172,5 @@ public class JSFunction {
     public String toString() {
         return String.format("function %s()", getName());
     }
+
 }
